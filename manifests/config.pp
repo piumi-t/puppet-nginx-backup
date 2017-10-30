@@ -28,7 +28,7 @@ class nginx::config(
     recurse => true,
     owner   => $owner,
     group   => $group,
-    mode    => $mode,
+    mode    => '0755',
   }
 }
 
