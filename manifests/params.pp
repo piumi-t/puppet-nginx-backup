@@ -32,5 +32,5 @@ class nginx::params {
   $service_hasstatus = 'true'
   $service_restart   = 'true'
 
-  $doc_root = '/usr/share/nginx'
+  $docroot = '/usr/share/nginx'
 }
