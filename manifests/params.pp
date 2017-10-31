@@ -1,6 +1,5 @@
 class nginx::params {
   $ensure          = 'present'
-  $package_name    = 'pe-nginx'
   $config_dir      = '/etc/nginx'
   $config_ensure   = 'file'
   $config_mode     = '0664'
@@ -12,7 +11,7 @@ class nginx::params {
 
   $config_vdir_enable = $facts['os']['family'] ? {
     'Debian' => $config_dir,
-    default  => undef,
+    default  => 'undef',
   }
 
   $config_process_user = $facts['os']['family'] ? {
@@ -23,6 +22,11 @@ class nginx::params {
   $vhost_dir = $facts['os']['family'] ? {
     'Debian' => "${config_dir}/sites-enabled",
     default  => $config_confd,
+  }
+
+  $package_name = $facts['os']['family'] ? {
+    'Redhat' => 'pe-nginx'
+    default  => 'nginx',
   }
 
   $service_name       = 'nginx'

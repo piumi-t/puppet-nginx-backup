@@ -36,6 +36,7 @@ class nginx::config(
    owner   => $owner,
    group   => $group,
    mode    => '0755',
+   before  => File['nginx-conf'],
   }
 }
 
