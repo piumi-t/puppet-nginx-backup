@@ -25,7 +25,7 @@ class nginx::params {
   }
 
   $package_name = $facts['os']['family'] ? {
-    'Redhat' => 'pe-nginx'
+    'Redhat' => 'pe-nginx',
     default  => 'nginx',
   }
 
