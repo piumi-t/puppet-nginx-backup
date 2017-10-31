@@ -38,5 +38,12 @@ class nginx::config(
    mode    => '0755',
    before  => File['nginx-conf'],
   }
+  file { $confd:
+   ensure  => 'directory',
+   recurse => true,
+   owner   => $owner,
+   group   => $group,
+   mode    => '0755',
+   before  => File['nginx-conf']
+  }
 }
-
